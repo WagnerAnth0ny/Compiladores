@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Token(Enum):
+class TokenEnums(Enum):
     
     # Identifiers
 
