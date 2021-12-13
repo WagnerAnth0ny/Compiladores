@@ -2,7 +2,6 @@ from enum import Enum
 
 
 class TokenEnums(Enum):
-    
     # Identifiers
 
     ID = 1
@@ -53,7 +52,6 @@ class TokenEnums(Enum):
     CTE_INT = 40
     CTE_FLOAT = 41
 
-
     # Delimiters
     CTE_CHAR = 42
     CTE_STR = 43
@@ -69,7 +67,7 @@ class TokenEnums(Enum):
 
     # Errors
 
-    ER_UNK= 52
+    ER_UNK = 52
     ER_ID = 53
     ER_NUM = 54
     ER_PR = 55
