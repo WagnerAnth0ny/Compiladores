@@ -15,7 +15,7 @@ class TokenEnums(Enum):
     OP_MUL = 5
     OP_GREATER = 6
     OP_LESS = 7
-    OP_EQUAL = 8
+    OP_EQUALDIFF = 8
     OP_EQUALG = 9
     OP_EQUALL = 10
     OP_AND = 11
@@ -24,6 +24,7 @@ class TokenEnums(Enum):
     OP_NOTUN = 14
     OP_ATR = 15
     OP_MOD = 16
+    OP_CONCAT = 27
 
     # Reserved words
 
@@ -51,11 +52,11 @@ class TokenEnums(Enum):
     BOOL_VALUE = 39
     CTE_INT = 40
     CTE_FLOAT = 41
-    CTE_CHAR = 42
-    CTE_STR = 43
 
 
     # Delimiters
+    CTE_CHAR = 42
+    CTE_STR = 43
 
     DEL_OPEN = 44
     DEL_CLOSE = 45
@@ -78,4 +79,3 @@ class TokenEnums(Enum):
 
     EOF = 57
     COMMENT = 58
-
