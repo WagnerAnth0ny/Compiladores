@@ -1,3 +1,4 @@
-FUNCTION INT MAIN() OPEN
-    PRINT("Olá, mundo :):");
-CLOSE
+# Programa Olá, mundo
+Function Int Main() Open
+    Print('Hello, world :):');
+Close

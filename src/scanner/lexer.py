@@ -1,6 +1,6 @@
 import traceback
-from src.scanner.tk import *
-from src.scanner.wordDict import *
+from tk import *
+from wordDict import *
 
 
 class Lexer:
@@ -8,7 +8,7 @@ class Lexer:
     def __init__(self, file):
         try:
             self.txtline = " "
-            self.pos = 0
+            self.pos = -1
             self.row = 1
             self.col = 1
             self.reader = open(file, 'rb')
@@ -54,14 +54,14 @@ class Lexer:
 
     def next_char(self):
         self.pos += 1
-        return self.content[self.pos]
+        return self.content[self.pos - 1]
 
     def next_token(self):
         self.state = 0
         lexem = ""
 
         while True:
-            if self.is_EOF:
+            if self.is_EOF():
                 if self.new_line():
                     self.content = list(self.txtline)
                 else:
@@ -72,7 +72,6 @@ class Lexer:
             if self.state == 0:
 
                 if self.is_blank(currChar):
-                    lexem += currChar
                     self.state = 0
 
                 elif self.is_lower(currChar):
@@ -314,15 +313,17 @@ class Lexer:
                     return Token(TokenEnums.ER_PR, lexem, self.row, self.col)
 
             elif self.state == 13:
-                if self.is_blank(currChar):
-                    self.state = 0
+                self.new_line()
+                self.content = self.txtline
+                lexem = ''
+                self.state = 0
 
     def back(self):
         self.pos -= 1
 
     def new_line(self):
 
-        tmp = " "
+        tmp = ''
 
         try:
             tmp = self.reader.readline().decode("utf-8")
@@ -330,7 +331,7 @@ class Lexer:
         except IOError as e:
             traceback.print_exc()
 
-        if tmp is not None:
+        if tmp != '':
             self.txtline = tmp
 
             print(f"{self.row}, {self.txtline}")
