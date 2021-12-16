@@ -28,7 +28,7 @@ class TokenEnums(Enum):
     # Reserved words
 
     RW_FUNCTION = 17
-    RW_RETURN = 18
+    RW_BACK = 18
     RW_WHILE = 19
     RW_FOR = 20
     RW_IF = 21
