@@ -1,2 +1,2 @@
-/.idea
-/src/scanner/__pycache__
+.idea/
+src/scanner/__pycache__/

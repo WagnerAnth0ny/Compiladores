@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e573c01-67c7-4f87-ab85-4f61f8b24854" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/code_examples/fibo.lp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/code_examples/shellsort.lp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scanner/enum_tokens.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scanner/enum_tokens.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scanner/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scanner/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scanner/wordDict.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scanner/wordDict.py" afterDir="false" />
