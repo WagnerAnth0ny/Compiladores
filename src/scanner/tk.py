@@ -9,5 +9,5 @@ class Token():
         self.col = col
 
     def to_str(self):
-        return f"[{self.line - 1},{self.col}] ({self.category.value,self.category.name}) {{{self.lexem}}}"
+        return f"              [{self.row - 1},{self.col}] ({self.category.value,self.category.name}) {{{self.lexem}}}"
 	

@@ -1,10 +1,11 @@
 from lexer import *
+import sys
 
-tk = Lexer("/home/hellena/Downloads/GitHub/Compiladores/src/code_examples/shellsort.lp")
 string = ""
+
+tk = Lexer(sys.argv[1])
 
 while not tk.is_EOF():
     currTk = tk.next_token()
 
-    print(f"[{currTk.category.name}, {currTk.lexem}]")
-
+    print(currTk.to_str())

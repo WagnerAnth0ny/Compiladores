@@ -8,7 +8,7 @@ class Lexer:
     def __init__(self, file):
         try:
             self.txtline = " "
-            self.pos = -1
+            self.pos = 1
             self.row = 1
             self.col = 1
             self.reader = open(file, 'rb')
@@ -334,7 +334,7 @@ class Lexer:
         if tmp != '':
             self.txtline = tmp
 
-            print(f"{self.row}, {self.txtline}")
+            print(f"{self.row} {self.txtline}")
 
             self.txtline += " "
             self.row += 1
