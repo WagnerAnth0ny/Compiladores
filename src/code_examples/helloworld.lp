@@ -1,4 +1,6 @@
 # Programa Olá, mundo
 Function Int Main() Open
-    Print('Hello, world :):');
+    Print('Alô mundo :):');
+
+    Back;
 Close
