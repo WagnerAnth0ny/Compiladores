@@ -1,0 +1,166 @@
+1 Function Int fibonacci(Int n) Open
+
+              [0001, 0001] (0017,          RW_FUNCTION) {Function}
+              [0001, 0002] (0024,               RW_INT) {Int}
+              [0001, 0003] (0001,                   ID) {fibonacci}
+              [0001, 0004] (0046,            DEL_OPENP) {(}
+              [0001, 0005] (0024,               RW_INT) {Int}
+              [0001, 0006] (0001,                   ID) {n}
+              [0001, 0007] (0047,           DEL_CLOSEP) {)}
+              [0001, 0008] (0032,              RW_OPEN) {Open}
+2     If(n < 2) Open
+
+              [0002, 0001] (0021,                RW_IF) {If}
+              [0002, 0002] (0046,            DEL_OPENP) {(}
+              [0002, 0003] (0001,                   ID) {n}
+              [0002, 0004] (0007,              OP_LESS) {<}
+              [0002, 0005] (0040,              CTE_INT) {2}
+              [0002, 0006] (0047,           DEL_CLOSEP) {)}
+              [0002, 0007] (0032,              RW_OPEN) {Open}
+3         Back n;
+
+              [0003, 0001] (0018,              RW_BACK) {Back}
+              [0003, 0002] (0001,                   ID) {n}
+              [0003, 0003] (0051,             DEL_SEMI) {;}
+4     Close
+
+              [0004, 0001] (0033,             RW_CLOSE) {Close}
+5     Else Open
+
+              [0005, 0001] (0022,              RW_ELSE) {Else}
+              [0005, 0002] (0032,              RW_OPEN) {Open}
+6         Back fibonacci(n - 1) + fibonacci(n - 2);
+
+              [0006, 0001] (0018,              RW_BACK) {Back}
+              [0006, 0002] (0001,                   ID) {fibonacci}
+              [0006, 0003] (0046,            DEL_OPENP) {(}
+              [0006, 0004] (0001,                   ID) {n}
+              [0006, 0005] (0003,               OP_SUB) {-}
+              [0006, 0006] (0040,              CTE_INT) {1}
+              [0006, 0007] (0047,           DEL_CLOSEP) {)}
+              [0006, 0008] (0002,               OP_SUM) {+}
+              [0006, 0009] (0001,                   ID) {fibonacci}
+              [0006, 0010] (0046,            DEL_OPENP) {(}
+              [0006, 0011] (0001,                   ID) {n}
+              [0006, 0012] (0003,               OP_SUB) {-}
+              [0006, 0013] (0040,              CTE_INT) {2}
+              [0006, 0014] (0047,           DEL_CLOSEP) {)}
+              [0006, 0015] (0051,             DEL_SEMI) {;}
+7     Close
+
+              [0007, 0001] (0033,             RW_CLOSE) {Close}
+8 Close
+
+              [0008, 0001] (0033,             RW_CLOSE) {Close}
+9
+
+10 Function Empty limited_fibonacci(Int x) Open
+
+              [0010, 0001] (0017,          RW_FUNCTION) {Function}
+              [0010, 0002] (0038,             RW_EMPTY) {Empty}
+              [0010, 0003] (0001,                   ID) {limited}
+              [0010, 0004] (0001,                   ID) {fibonacci}
+              [0010, 0005] (0046,            DEL_OPENP) {(}
+              [0010, 0006] (0024,               RW_INT) {Int}
+              [0010, 0007] (0001,                   ID) {x}
+              [0010, 0008] (0047,           DEL_CLOSEP) {)}
+              [0010, 0009] (0032,              RW_OPEN) {Open}
+11     i = 1
+
+              [0011, 0001] (0001,                   ID) {i}
+              [0011, 0002] (0013,               OP_NOT) {=}
+              [0011, 0003] (0040,              CTE_INT) {1}
+12     While (fibonacci(i) < x) Open
+
+              [0012, 0001] (0019,             RW_WHILE) {While}
+              [0012, 0002] (0046,            DEL_OPENP) {(}
+              [0012, 0003] (0001,                   ID) {fibonacci}
+              [0012, 0004] (0046,            DEL_OPENP) {(}
+              [0012, 0005] (0001,                   ID) {i}
+              [0012, 0006] (0047,           DEL_CLOSEP) {)}
+              [0012, 0007] (0007,              OP_LESS) {<}
+              [0012, 0008] (0001,                   ID) {x}
+              [0012, 0009] (0047,           DEL_CLOSEP) {)}
+              [0012, 0010] (0032,              RW_OPEN) {Open}
+13         Print(fibonacci(i));
+
+              [0013, 0001] (0035,             RW_PRINT) {Print}
+              [0013, 0002] (0046,            DEL_OPENP) {(}
+              [0013, 0003] (0001,                   ID) {fibonacci}
+              [0013, 0004] (0046,            DEL_OPENP) {(}
+              [0013, 0005] (0001,                   ID) {i}
+              [0013, 0006] (0047,           DEL_CLOSEP) {)}
+              [0013, 0007] (0047,           DEL_CLOSEP) {)}
+              [0013, 0008] (0051,             DEL_SEMI) {;}
+14         i = i + 1;
+
+              [0014, 0001] (0001,                   ID) {i}
+              [0014, 0002] (0013,               OP_NOT) {=}
+              [0014, 0003] (0001,                   ID) {i}
+              [0014, 0004] (0002,               OP_SUM) {+}
+              [0014, 0005] (0040,              CTE_INT) {1}
+              [0014, 0006] (0051,             DEL_SEMI) {;}
+15     Close
+
+              [0015, 0001] (0033,             RW_CLOSE) {Close}
+16
+
+17     Back;
+
+              [0017, 0001] (0018,              RW_BACK) {Back}
+              [0017, 0002] (0051,             DEL_SEMI) {;}
+18 Close
+
+              [0018, 0001] (0033,             RW_CLOSE) {Close}
+19
+
+20 Function Int Main ( ) Open
+
+              [0020, 0001] (0017,          RW_FUNCTION) {Function}
+              [0020, 0002] (0024,               RW_INT) {Int}
+              [0020, 0003] (0037,              RW_MAIN) {Main}
+              [0020, 0004] (0046,            DEL_OPENP) {(}
+              [0020, 0005] (0047,           DEL_CLOSEP) {)}
+              [0020, 0006] (0032,              RW_OPEN) {Open}
+21     Int n, total;
+
+              [0021, 0001] (0024,               RW_INT) {Int}
+              [0021, 0002] (0001,                   ID) {n}
+              [0021, 0003] (0050,            DEL_COMMA) {,}
+              [0021, 0004] (0001,                   ID) {total}
+              [0021, 0005] (0051,             DEL_SEMI) {;}
+22     Print('Insira um valor limite: ');
+
+              [0022, 0001] (0035,             RW_PRINT) {Print}
+              [0022, 0002] (0046,            DEL_OPENP) {(}
+              [0022, 0003] (0043,              CTE_STR) {'Insira um valor limite: '}
+              [0022, 0004] (0047,           DEL_CLOSEP) {)}
+              [0022, 0005] (0051,             DEL_SEMI) {;}
+23     Scan(n);
+
+              [0023, 0001] (0034,              RW_SCAN) {Scan}
+              [0023, 0002] (0046,            DEL_OPENP) {(}
+              [0023, 0003] (0001,                   ID) {n}
+              [0023, 0004] (0047,           DEL_CLOSEP) {)}
+              [0023, 0005] (0051,             DEL_SEMI) {;}
+24
+
+25     limited_fibonacci(n);
+
+              [0025, 0001] (0001,                   ID) {limited}
+              [0025, 0002] (0001,                   ID) {fibonacci}
+              [0025, 0003] (0046,            DEL_OPENP) {(}
+              [0025, 0004] (0001,                   ID) {n}
+              [0025, 0005] (0047,           DEL_CLOSEP) {)}
+              [0025, 0006] (0051,             DEL_SEMI) {;}
+26
+
+27     Back 0;
+
+              [0027, 0001] (0018,              RW_BACK) {Back}
+              [0027, 0002] (0040,              CTE_INT) {0}
+              [0027, 0003] (0051,             DEL_SEMI) {;}
+28 Close
+
+              [0028, 0001] (0033,             RW_CLOSE) {Close}
+              [0028, 0001] (0057,                  EOF) {EOF}

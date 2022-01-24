@@ -1,0 +1,23 @@
+2 Function Int Main() Open
+
+              [0002, 0001] (0017,          RW_FUNCTION) {Function}
+              [0002, 0002] (0024,               RW_INT) {Int}
+              [0002, 0003] (0037,              RW_MAIN) {Main}
+              [0002, 0004] (0046,            DEL_OPENP) {(}
+              [0002, 0005] (0047,           DEL_CLOSEP) {)}
+              [0002, 0006] (0032,              RW_OPEN) {Open}
+3     Print('Hello, world :):');
+
+              [0003, 0001] (0035,             RW_PRINT) {Print}
+              [0003, 0002] (0046,            DEL_OPENP) {(}
+              [0003, 0003] (0043,              CTE_STR) {'Hello, world :):'}
+              [0003, 0004] (0047,           DEL_CLOSEP) {)}
+              [0003, 0005] (0051,             DEL_SEMI) {;}
+4     Back 0;
+
+              [0004, 0001] (0018,              RW_BACK) {Back}
+              [0004, 0002] (0040,              CTE_INT) {0}
+              [0004, 0003] (0051,             DEL_SEMI) {;}
+5 Close
+              [0005, 0001] (0033,             RW_CLOSE) {Close}
+              [0005, 0001] (0057,                  EOF) {EOF}

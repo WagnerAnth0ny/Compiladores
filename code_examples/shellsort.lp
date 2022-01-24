@@ -1,4 +1,4 @@
-Function Empty shellsort(Int array[ ], Int n) Open
+Function Empty shellsort(Int array[5], Int n) Open
 		Int c, j;
         Int h = 1;
 
@@ -40,7 +40,7 @@ Function Int Main ( ) Open
 
 		Int array[n];
 
-		Print('Insiraos elementos do array: ');
+		Print('Insira os elementos do array: ');
 
         For (Int i = 0, 1, n) Open
 	        Scan(array[i]);
@@ -62,5 +62,5 @@ Function Int Main ( ) Open
 	        Printnl(current);
         Close
 
-		Back;
+		Back 0;
 Close

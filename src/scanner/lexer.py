@@ -95,7 +95,6 @@ class Lexer:
                     self.state = 11
 
                 elif currChar == '#':
-                    lexem += currChar
                     self.state = 13
 
                 elif currChar == '+':
@@ -334,7 +333,8 @@ class Lexer:
         if tmp != '':
             self.txtline = tmp
 
-            print(f"{self.row} {self.txtline}")
+            if tmp[0] != '#':
+                print(f"{self.row} {self.txtline}")
 
             self.txtline += " "
             self.row += 1

@@ -76,4 +76,3 @@ class TokenEnums(Enum):
     # Others
 
     EOF = 57
-    COMMENT = 58
