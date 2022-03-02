@@ -1,5 +1,5 @@
-# Programa Olá, mundo
 Function Int Main() Open
-    Print('Hello, world :):');
+    Int x;
+    Print('Hello, world');
     Back 0;
 Close

@@ -163,7 +163,7 @@ class Lexer:
                     return Token(TokenEnums.OP_CONCAT, lexem, self.row, self.col)
 
                 else:
-                    Token(TokenEnums.ER_UNK, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_UNK, lexem, self.row, self.col)
 
             elif self.state == 1:
                 if self.is_operator(currChar) or self.is_blank(currChar) or not self.is_alphanum(currChar):
@@ -175,7 +175,7 @@ class Lexer:
 
                 else:
                     self.col += 1
-                    Token(TokenEnums.ER_ID, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_ID, lexem, self.row, self.col)
 
             elif self.state == 2:
                 self.back()
@@ -194,7 +194,7 @@ class Lexer:
                     lexem += currChar
                 else:
                     self.col += 1
-                    Token(TokenEnums.ER_NUM, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_NUM, lexem, self.row, self.col)
 
             elif self.state == 4:
                 if self.is_digit(currChar):
@@ -206,7 +206,7 @@ class Lexer:
 
                 else:
                     self.col += 1
-                    Token(TokenEnums.ER_NUM, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_NUM, lexem, self.row, self.col)
 
             elif self.state == 5:
                 self.back()
@@ -253,12 +253,14 @@ class Lexer:
                     if currChar == '=':
                         lexem += currChar
                         return Token(TokenEnums.OP_EQUALDIFF, lexem, self.row, self.col)
+                    elif not (currChar == '!' or currChar == '='):
+                        return Token(TokenEnums.OP_ATR, lexem, self.row, self.col)
                     else:
                         self.back()
                         return Token(TokenEnums.OP_NOT, lexem, self.row, self.col)
 
                 else:
-                    Token(TokenEnums.ER_UNK, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_UNK, lexem, self.row, self.col)
 
             elif self.state == 8:
                 if chr(32) <= currChar <= chr(126):
@@ -275,7 +277,7 @@ class Lexer:
 
                 else:
                     self.col += 1
-                    Token(TokenEnums.ER_CHAR, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_CHAR, lexem, self.row, self.col)
 
             elif self.state == 9:
                 self.back()
@@ -292,7 +294,7 @@ class Lexer:
 
                 else:
                     self.col += 1
-                    Token(TokenEnums.ER_CHAR, lexem, self.row, self.col)
+                    return Token(TokenEnums.ER_CHAR, lexem, self.row, self.col)
 
             elif self.state == 11:
                 if not (self.is_lower(currChar)) or self.is_blank(currChar):

@@ -1,166 +1,558 @@
 1 Function Int fibonacci(Int n) Open
 
+          S = DeclaracaoFunção S
+          DeclaracaoFunção = 'Function' FunctionType IdOuMain '(' DeclaraçãoConstante ')' Bloco
               [0001, 0001] (0017,          RW_FUNCTION) {Function}
+          Vartype = Int
               [0001, 0002] (0024,               RW_INT) {Int}
+          IdOuMain = 'id'
               [0001, 0003] (0001,                   ID) {fibonacci}
               [0001, 0004] (0046,            DEL_OPENP) {(}
+          DeclaraçãoConstante = Vartype 'id'  Vector DeclaraçãoConstante_LL
+          Vartype = Int
               [0001, 0005] (0024,               RW_INT) {Int}
               [0001, 0006] (0001,                   ID) {n}
+          VetTipo = ε
               [0001, 0007] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
               [0001, 0008] (0032,              RW_OPEN) {Open}
 2     If(n < 2) Open
 
+If
+          Instrução = Cmd Instrução
+          Cmd = 'CmdIf' '(' BE ')' Bloco CmdIf_LL
               [0002, 0001] (0021,                RW_IF) {If}
               [0002, 0002] (0046,            DEL_OPENP) {(}
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
               [0002, 0003] (0001,                   ID) {n}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = 'OP_LESS' AR BF_LL
               [0002, 0004] (0007,              OP_LESS) {<}
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
               [0002, 0005] (0040,              CTE_INT) {2}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
               [0002, 0006] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
               [0002, 0007] (0032,              RW_OPEN) {Open}
 3         Back n;
 
+          Instrução = 'Back' Back ';'
               [0003, 0001] (0018,              RW_BACK) {Back}
+          Back = CE
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
               [0003, 0002] (0001,                   ID) {n}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
               [0003, 0003] (0051,             DEL_SEMI) {;}
 4     Close
 
               [0004, 0001] (0033,             RW_CLOSE) {Close}
 5     Else Open
 
+          CmdIf_LL = 'RW_ELSE' Instrução
               [0005, 0001] (0022,              RW_ELSE) {Else}
+          Bloco = '{' Instrução '}'
               [0005, 0002] (0032,              RW_OPEN) {Open}
 6         Back fibonacci(n - 1) + fibonacci(n - 2);
 
+          Instrução = 'Back' Back ';'
               [0006, 0001] (0018,              RW_BACK) {Back}
+          Back = CE
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
               [0006, 0002] (0001,                   ID) {fibonacci}
+          IdChamadaFunção_LL = '(' ParâmetrosFunção ')'
               [0006, 0003] (0046,            DEL_OPENP) {(}
+          ParâmetrosFunção = CE ParâmetrosFunção_LL
               [0006, 0004] (0001,                   ID) {n}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0006, 0004] (0001,                   ID) {n}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = 'OP_SUB' AT AE_LL
               [0006, 0005] (0003,               OP_SUB) {-}
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
               [0006, 0006] (0040,              CTE_INT) {1}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          ParâmetrosFunção_LL = ε
               [0006, 0007] (0047,           DEL_CLOSEP) {)}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = 'OP_SUM' AT AE
               [0006, 0008] (0002,               OP_SUM) {+}
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
               [0006, 0009] (0001,                   ID) {fibonacci}
+          IdChamadaFunção_LL = '(' ParâmetrosFunção ')'
               [0006, 0010] (0046,            DEL_OPENP) {(}
+          ParâmetrosFunção = CE ParâmetrosFunção_LL
               [0006, 0011] (0001,                   ID) {n}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0006, 0011] (0001,                   ID) {n}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = 'OP_SUB' AT AE_LL
               [0006, 0012] (0003,               OP_SUB) {-}
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
               [0006, 0013] (0040,              CTE_INT) {2}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          ParâmetrosFunção_LL = ε
               [0006, 0014] (0047,           DEL_CLOSEP) {)}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
               [0006, 0015] (0051,             DEL_SEMI) {;}
 7     Close
 
               [0007, 0001] (0033,             RW_CLOSE) {Close}
 8 Close
 
+          Instrução = ε
               [0008, 0001] (0033,             RW_CLOSE) {Close}
 9
 
-10 Function Empty limited_fibonacci(Int x) Open
+10 Function Empty limitedfibonacci(Int x) Open
 
+          S = DeclaracaoFunção S
+          DeclaracaoFunção = 'Function' FunctionType IdOuMain '(' DeclaraçãoConstante ')' Bloco
               [0010, 0001] (0017,          RW_FUNCTION) {Function}
+          Vartype = Empty
               [0010, 0002] (0038,             RW_EMPTY) {Empty}
-              [0010, 0003] (0001,                   ID) {limited}
-              [0010, 0004] (0001,                   ID) {fibonacci}
-              [0010, 0005] (0046,            DEL_OPENP) {(}
-              [0010, 0006] (0024,               RW_INT) {Int}
-              [0010, 0007] (0001,                   ID) {x}
-              [0010, 0008] (0047,           DEL_CLOSEP) {)}
-              [0010, 0009] (0032,              RW_OPEN) {Open}
-11     i = 1
+          IdOuMain = 'id'
+              [0010, 0003] (0001,                   ID) {limitedfibonacci}
+              [0010, 0004] (0046,            DEL_OPENP) {(}
+          DeclaraçãoConstante = Vartype 'id'  Vector DeclaraçãoConstante_LL
+          Vartype = Int
+              [0010, 0005] (0024,               RW_INT) {Int}
+              [0010, 0006] (0001,                   ID) {x}
+          VetTipo = ε
+              [0010, 0007] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
+              [0010, 0008] (0032,              RW_OPEN) {Open}
+11     Int i = 1, current;
 
-              [0011, 0001] (0001,                   ID) {i}
-              [0011, 0002] (0013,               OP_NOT) {=}
-              [0011, 0003] (0040,              CTE_INT) {1}
-12     While (fibonacci(i) < x) Open
+          Instrução = DeclaraçãoId Instrução
+          DeclaraçãoId = FunctionType Id ';'
+          Vartype = Int
+              [0011, 0001] (0024,               RW_INT) {Int}
+          LId = Id Atribuição Id_LL
+          Id = 'id' ArrayOpt
+              [0011, 0002] (0001,                   ID) {i}
+          VetTipo = ε
+          Atribuição = '=' CE
+              [0011, 0003] (0015,               OP_ATR) {=}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
+              [0011, 0004] (0040,              CTE_INT) {1}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          Id_LL = ',' Id Atribuição Id_LL
+              [0011, 0005] (0050,            DEL_COMMA) {,}
+          Id = 'id' ArrayOpt
+              [0011, 0006] (0001,                   ID) {current}
+          VetTipo = ε
+          Atribuição = ε
+          Id_LL = ε
+              [0011, 0007] (0051,             DEL_SEMI) {;}
+12
 
-              [0012, 0001] (0019,             RW_WHILE) {While}
-              [0012, 0002] (0046,            DEL_OPENP) {(}
-              [0012, 0003] (0001,                   ID) {fibonacci}
-              [0012, 0004] (0046,            DEL_OPENP) {(}
-              [0012, 0005] (0001,                   ID) {i}
-              [0012, 0006] (0047,           DEL_CLOSEP) {)}
-              [0012, 0007] (0007,              OP_LESS) {<}
-              [0012, 0008] (0001,                   ID) {x}
-              [0012, 0009] (0047,           DEL_CLOSEP) {)}
-              [0012, 0010] (0032,              RW_OPEN) {Open}
-13         Print(fibonacci(i));
+13     While (fibonacci(i) < x) Open
 
-              [0013, 0001] (0035,             RW_PRINT) {Print}
+While
+          Instrução = Cmd Instrução
+          Cmd = 'CmdWhile' '(' BE ')' Bloco
+              [0013, 0001] (0019,             RW_WHILE) {While}
               [0013, 0002] (0046,            DEL_OPENP) {(}
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
               [0013, 0003] (0001,                   ID) {fibonacci}
+          IdChamadaFunção_LL = '(' ParâmetrosFunção ')'
               [0013, 0004] (0046,            DEL_OPENP) {(}
+          ParâmetrosFunção = CE ParâmetrosFunção_LL
               [0013, 0005] (0001,                   ID) {i}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0013, 0005] (0001,                   ID) {i}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          ParâmetrosFunção_LL = ε
               [0013, 0006] (0047,           DEL_CLOSEP) {)}
-              [0013, 0007] (0047,           DEL_CLOSEP) {)}
-              [0013, 0008] (0051,             DEL_SEMI) {;}
-14         i = i + 1;
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = 'OP_LESS' AR BF_LL
+              [0013, 0007] (0007,              OP_LESS) {<}
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0013, 0008] (0001,                   ID) {x}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+              [0013, 0009] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
+              [0013, 0010] (0032,              RW_OPEN) {Open}
+14         current = fibonacci(i);
 
-              [0014, 0001] (0001,                   ID) {i}
-              [0014, 0002] (0013,               OP_NOT) {=}
-              [0014, 0003] (0001,                   ID) {i}
-              [0014, 0004] (0002,               OP_SUM) {+}
-              [0014, 0005] (0040,              CTE_INT) {1}
-              [0014, 0006] (0051,             DEL_SEMI) {;}
-15     Close
+          Instrução = Instrução_LL ';' Instrução
+          Instrução_LL = 'id' ParamAtr
+              [0014, 0001] (0001,                   ID) {current}
+          ParamAtr = '=' CE lAtr
+              [0014, 0002] (0015,               OP_ATR) {=}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0014, 0003] (0001,                   ID) {fibonacci}
+          IdChamadaFunção_LL = '(' ParâmetrosFunção ')'
+              [0014, 0004] (0046,            DEL_OPENP) {(}
+          ParâmetrosFunção = CE ParâmetrosFunção_LL
+              [0014, 0005] (0001,                   ID) {i}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0014, 0005] (0001,                   ID) {i}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          ParâmetrosFunção_LL = ε
+              [0014, 0006] (0047,           DEL_CLOSEP) {)}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          lAtr = ε
+              [0014, 0007] (0051,             DEL_SEMI) {;}
+15         Print(current);
 
-              [0015, 0001] (0033,             RW_CLOSE) {Close}
-16
+Print
+          Instrução = Cmd Instrução
+          Cmd = 'Print' '(' 'CTE_STR' PrintParâmetros ')' ';'
+              [0015, 0001] (0035,             RW_PRINT) {Print}
+              [0015, 0002] (0046,            DEL_OPENP) {(}
+              [0015, 0003] (0001,                   ID) {current}
+          PrintParâmetros = ε
+              [0015, 0004] (0047,           DEL_CLOSEP) {)}
+              [0015, 0005] (0051,             DEL_SEMI) {;}
+16         i = i + 1;
 
-17     Back;
+          Instrução = Instrução_LL ';' Instrução
+          Instrução_LL = 'id' ParamAtr
+              [0016, 0001] (0001,                   ID) {i}
+          ParamAtr = '=' CE lAtr
+              [0016, 0002] (0015,               OP_ATR) {=}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0016, 0003] (0001,                   ID) {i}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = 'OP_SUM' AT AE
+              [0016, 0004] (0002,               OP_SUM) {+}
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
+              [0016, 0005] (0040,              CTE_INT) {1}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          lAtr = ε
+              [0016, 0006] (0051,             DEL_SEMI) {;}
+17     Close
 
-              [0017, 0001] (0018,              RW_BACK) {Back}
-              [0017, 0002] (0051,             DEL_SEMI) {;}
-18 Close
+          Instrução = ε
+              [0017, 0001] (0033,             RW_CLOSE) {Close}
+18
 
-              [0018, 0001] (0033,             RW_CLOSE) {Close}
-19
+19     Back;
 
-20 Function Int Main ( ) Open
+          Instrução = 'Back' Back ';'
+              [0019, 0001] (0018,              RW_BACK) {Back}
+          Back = ε
+              [0019, 0002] (0051,             DEL_SEMI) {;}
+20 Close
 
-              [0020, 0001] (0017,          RW_FUNCTION) {Function}
-              [0020, 0002] (0024,               RW_INT) {Int}
-              [0020, 0003] (0037,              RW_MAIN) {Main}
-              [0020, 0004] (0046,            DEL_OPENP) {(}
-              [0020, 0005] (0047,           DEL_CLOSEP) {)}
-              [0020, 0006] (0032,              RW_OPEN) {Open}
-21     Int n, total;
+              [0020, 0001] (0033,             RW_CLOSE) {Close}
+21
 
-              [0021, 0001] (0024,               RW_INT) {Int}
-              [0021, 0002] (0001,                   ID) {n}
-              [0021, 0003] (0050,            DEL_COMMA) {,}
-              [0021, 0004] (0001,                   ID) {total}
-              [0021, 0005] (0051,             DEL_SEMI) {;}
-22     Print('Insira um valor limite: ');
+22 Function Int Main ( ) Open
 
-              [0022, 0001] (0035,             RW_PRINT) {Print}
-              [0022, 0002] (0046,            DEL_OPENP) {(}
-              [0022, 0003] (0043,              CTE_STR) {'Insira um valor limite: '}
-              [0022, 0004] (0047,           DEL_CLOSEP) {)}
-              [0022, 0005] (0051,             DEL_SEMI) {;}
-23     Scan(n);
+          S = DeclaracaoFunção S
+          DeclaracaoFunção = 'Function' FunctionType IdOuMain '(' DeclaraçãoConstante ')' Bloco
+              [0022, 0001] (0017,          RW_FUNCTION) {Function}
+          Vartype = Int
+              [0022, 0002] (0024,               RW_INT) {Int}
+          IdOuMain = 'Main'
+              [0022, 0003] (0037,              RW_MAIN) {Main}
+              [0022, 0004] (0046,            DEL_OPENP) {(}
+          DeclaraçãoConstante = ε
+              [0022, 0005] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
+              [0022, 0006] (0032,              RW_OPEN) {Open}
+23     Int n, total;
 
-              [0023, 0001] (0034,              RW_SCAN) {Scan}
-              [0023, 0002] (0046,            DEL_OPENP) {(}
-              [0023, 0003] (0001,                   ID) {n}
-              [0023, 0004] (0047,           DEL_CLOSEP) {)}
+          Instrução = DeclaraçãoId Instrução
+          DeclaraçãoId = FunctionType Id ';'
+          Vartype = Int
+              [0023, 0001] (0024,               RW_INT) {Int}
+          LId = Id Atribuição Id_LL
+          Id = 'id' ArrayOpt
+              [0023, 0002] (0001,                   ID) {n}
+          VetTipo = ε
+          Atribuição = ε
+          Id_LL = ',' Id Atribuição Id_LL
+              [0023, 0003] (0050,            DEL_COMMA) {,}
+          Id = 'id' ArrayOpt
+              [0023, 0004] (0001,                   ID) {total}
+          VetTipo = ε
+          Atribuição = ε
+          Id_LL = ε
               [0023, 0005] (0051,             DEL_SEMI) {;}
-24
+24     Print('Insira um valor limite: ');
 
-25     limited_fibonacci(n);
+Print
+          Instrução = Cmd Instrução
+          Cmd = 'Print' '(' 'CTE_STR' PrintParâmetros ')' ';'
+              [0024, 0001] (0035,             RW_PRINT) {Print}
+              [0024, 0002] (0046,            DEL_OPENP) {(}
+              [0024, 0003] (0043,              CTE_STR) {'Insira um valor limite: '}
+          PrintParâmetros = ε
+              [0024, 0004] (0047,           DEL_CLOSEP) {)}
+              [0024, 0005] (0051,             DEL_SEMI) {;}
+25     Scan(n);
 
-              [0025, 0001] (0001,                   ID) {limited}
-              [0025, 0002] (0001,                   ID) {fibonacci}
-              [0025, 0003] (0046,            DEL_OPENP) {(}
-              [0025, 0004] (0001,                   ID) {n}
-              [0025, 0005] (0047,           DEL_CLOSEP) {)}
-              [0025, 0006] (0051,             DEL_SEMI) {;}
+Scan
+          Instrução = Cmd Instrução
+          Cmd = 'Scan' '('  Scan ')' ';'
+              [0025, 0001] (0034,              RW_SCAN) {Scan}
+              [0025, 0002] (0046,            DEL_OPENP) {(}
+          Scan = 'id'  Vector Scan_LL
+              [0025, 0003] (0001,                   ID) {n}
+          VetTipo = ε
+          Scan_LL = ε
+              [0025, 0004] (0047,           DEL_CLOSEP) {)}
+              [0025, 0005] (0051,             DEL_SEMI) {;}
 26
 
-27     Back 0;
+27     limitedfibonacci(n);
 
-              [0027, 0001] (0018,              RW_BACK) {Back}
-              [0027, 0002] (0040,              CTE_INT) {0}
-              [0027, 0003] (0051,             DEL_SEMI) {;}
-28 Close
+          Instrução = Instrução_LL ';' Instrução
+          Instrução_LL = 'id' ParamAtr
+              [0027, 0001] (0001,                   ID) {limitedfibonacci}
+          ParamAtr = '(' ParâmetrosFunção ')'
+              [0027, 0002] (0046,            DEL_OPENP) {(}
+          ParâmetrosFunção = CE ParâmetrosFunção_LL
+              [0027, 0003] (0001,                   ID) {n}
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          IdChamadaFunção = 'id' IdChamadaFunção_LL
+              [0027, 0003] (0001,                   ID) {n}
+          IdChamadaFunção_LL = ε
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+          ParâmetrosFunção_LL = ε
+              [0027, 0004] (0047,           DEL_CLOSEP) {)}
+              [0027, 0005] (0051,             DEL_SEMI) {;}
+28
 
-              [0028, 0001] (0033,             RW_CLOSE) {Close}
-              [0028, 0001] (0057,                  EOF) {EOF}
+29     Back 0;
+
+          Instrução = 'Back' Back ';'
+              [0029, 0001] (0018,              RW_BACK) {Back}
+          Back = CE
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
+              [0029, 0002] (0040,              CTE_INT) {0}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
+              [0029, 0003] (0051,             DEL_SEMI) {;}
+30 Close
+
+              [0030, 0001] (0033,             RW_CLOSE) {Close}
+          S = ε
+
+Process finished with exit code 0

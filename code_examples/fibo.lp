@@ -7,10 +7,12 @@ Function Int fibonacci(Int n) Open
     Close
 Close
 
-Function Empty limited_fibonacci(Int x) Open
-    i = 1
+Function Empty limitedfibonacci(Int x) Open
+    Int i = 1, current;
+
     While (fibonacci(i) < x) Open
-        Print(fibonacci(i));
+        current = fibonacci(i);
+        Print(current);
         i = i + 1;
     Close
 
@@ -22,7 +24,7 @@ Function Int Main ( ) Open
     Print('Insira um valor limite: ');
     Scan(n);
 
-    limited_fibonacci(n);
+    limitedfibonacci(n);
 
     Back 0;
 Close

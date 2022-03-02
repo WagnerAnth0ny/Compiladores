@@ -1,23 +1,65 @@
-2 Function Int Main() Open
+1 Function Int Main() Open
 
-              [0002, 0001] (0017,          RW_FUNCTION) {Function}
-              [0002, 0002] (0024,               RW_INT) {Int}
-              [0002, 0003] (0037,              RW_MAIN) {Main}
-              [0002, 0004] (0046,            DEL_OPENP) {(}
-              [0002, 0005] (0047,           DEL_CLOSEP) {)}
-              [0002, 0006] (0032,              RW_OPEN) {Open}
-3     Print('Hello, world :):');
+          S = DeclaracaoFunção S
+          DeclaracaoFunção = 'Function' FunctionType IdOuMain '(' DeclaraçãoConstante ')' Bloco
+              [0001, 0001] (0017,          RW_FUNCTION) {Function}
+          Vartype = Int
+              [0001, 0002] (0024,               RW_INT) {Int}
+          IdOuMain = 'Main'
+              [0001, 0003] (0037,              RW_MAIN) {Main}
+              [0001, 0004] (0046,            DEL_OPENP) {(}
+          DeclaraçãoConstante = ε
+              [0001, 0005] (0047,           DEL_CLOSEP) {)}
+          Bloco = '{' Instrução '}'
+              [0001, 0006] (0032,              RW_OPEN) {Open}
+2     Int x;
 
+          Instrução = DeclaraçãoId Instrução
+          DeclaraçãoId = FunctionType Id ';'
+          Vartype = Int
+              [0002, 0001] (0024,               RW_INT) {Int}
+          LId = Id Atribuição Id_LL
+          Id = 'id' ArrayOpt
+              [0002, 0002] (0001,                   ID) {x}
+          VetTipo = ε
+          Atribuição = ε
+          Id_LL = ε
+              [0002, 0003] (0051,             DEL_SEMI) {;}
+3     Print('Hello, world');
+
+Print
+          Instrução = Cmd Instrução
+          Cmd = 'Print' '(' 'CTE_STR' PrintParâmetros ')' ';'
               [0003, 0001] (0035,             RW_PRINT) {Print}
               [0003, 0002] (0046,            DEL_OPENP) {(}
-              [0003, 0003] (0043,              CTE_STR) {'Hello, world :):'}
+              [0003, 0003] (0043,              CTE_STR) {'Hello, world'}
+          PrintParâmetros = ε
               [0003, 0004] (0047,           DEL_CLOSEP) {)}
               [0003, 0005] (0051,             DEL_SEMI) {;}
 4     Back 0;
 
+          Instrução = 'Back' Back ';'
               [0004, 0001] (0018,              RW_BACK) {Back}
+          Back = CE
+          CE = CF CE
+          BE = BT BE
+          BT = BF BT_LL
+          BF = AR BF_LL
+          AR = AT AR_LL
+          AE = AT AE_LL
+          AT = AP AT_LL
+          AP = AF AP_LL
+          AF = 'CTE_INT'
               [0004, 0002] (0040,              CTE_INT) {0}
+          AP_LL = ε
+          AT_LL = ε
+          AE_LL = ε
+          AR_LL = ε
+          BF_LL = ε
+          BT_LL = ε
+          BE_LL = ε
+          CE_LL = ε
               [0004, 0003] (0051,             DEL_SEMI) {;}
 5 Close
               [0005, 0001] (0033,             RW_CLOSE) {Close}
-              [0005, 0001] (0057,                  EOF) {EOF}
+          S = ε

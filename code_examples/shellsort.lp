@@ -1,6 +1,5 @@
-Function Empty shellsort(Int array[5], Int n) Open
-		Int c, j;
-        Int h = 1;
+Function Empty shellsort(Int array[ ], Int n) Open
+		Int h = 1, c, j;
 
         While (h < n) Open
 			h = h * 3 + 1;
@@ -26,7 +25,7 @@ Function Empty shellsort(Int array[5], Int n) Open
 			Close
 
 			h = h / 2;
-        
+
 		Close
 
 		Back;
