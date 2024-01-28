@@ -22,17 +22,18 @@ class SemanticAnalyzer:
 
     def analyze(self, syntax_node, level=0):
         if syntax_node:
-            print(syntax_node.node_type)
-            if syntax_node.node_type == 'Vartype':
+            if syntax_node.node_type == 'DeclaracaoFunção':
                 if syntax_node.children:
-                    self.found_vartype = syntax_node.children[0].node_type
-                    return
+                    for c in syntax_node.children:
+                        if c.node_type == 'Vartype':
+                            self.found_vartype = c.node_type
+                            return
             if syntax_node.node_type == 'IdOuMain':
                 if syntax_node.children:
                     for child in syntax_node.children:
                         if child and not isinstance(child.value, str):
                             if (self.analyze_fdeclaration_type(self.found_vartype) and
-                                self.analyze_fdeclaration_id(child.value.lexeme)):
+                                    self.analyze_fdeclaration_id(child.value.lexeme)):
                                 self.found_function = True
                                 self.last_func_name = child.value.lexeme
 
@@ -58,24 +59,31 @@ class SemanticAnalyzer:
                                 if child.children[1].children[0].node_type == 'RW_BACK':
                                     returned = self.get_returned(child.children[1].children)
 
-                                    if returned == 'RW_EMPTY':
-                                        print(f'Semantic error: wrong return type {returned}' if returned != self.found_vartype else '')
+                                    print(self.last_func_name, returned, self.found_vartype)
+
+                                    if returned == 'RW_EMPTY' and self.found_vartype != 'RW_EMPTY':
+                                        print(
+                                            f'Semantic error: wrong return type {returned}' if returned != self.found_vartype else '')
                                         exit(-1)
                                     elif returned == 'CTE_STR' and self.found_vartype != 'RW_STR':
-                                        print(f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
+                                        print(
+                                            f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
                                         exit(-1)
                                     elif returned == 'CTE_INT' and self.found_vartype != 'RW_INT':
                                         print(
                                             f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
                                         exit(-1)
                                     elif returned == 'CTE_CHAR' and self.found_vartype != 'RW_CHAR':
-                                        print(f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
+                                        print(
+                                            f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
                                         exit(-1)
                                     elif returned == 'CTE_FLOAT' and self.found_vartype != 'RW_FLOAT':
-                                        print(f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
+                                        print(
+                                            f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
                                         exit(-1)
                                     elif returned == 'CTE_BOOL' and self.found_vartype != 'RW_BOOL':
-                                        print(f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
+                                        print(
+                                            f'Semantic error: wrong return type {returned} expected {self.found_vartype}')
                                         exit(-1)
 
                 self.analyze_func(syntax_node, self.last_func_name, returned, self.found_vartype)
@@ -109,7 +117,7 @@ class SemanticAnalyzer:
         if syntax_node.children:
             last_vartype = ''
             for child in syntax_node.children:
-                if child.node_type == 'DeclaraçãoId':
+                if child and child.node_type == 'DeclaraçãoId':
                     if child.children:
                         for child2 in child.children:
                             if child2.node_type == 'Vartype':
@@ -122,7 +130,7 @@ class SemanticAnalyzer:
                                         self.declared_variables[child2.children[0].value.lexeme] = last_vartype
                                         self.found_variables.append(child2.children[0].value.lexeme)
 
-        #self.analyze_attribution(syntax_node)
+        # self.analyze_attribution(syntax_node)
 
         r = 0
         f = 0
@@ -148,16 +156,17 @@ class SemanticAnalyzer:
 
                     isEqual = self.declared_functions[func_name].params[returned] == rtype
                     if not isEqual:
-                        print(f'Semantic error: expected return {rtype}, got {self.declared_variables[returned]} instead.')
+                        print(
+                            f'Semantic error: expected return {rtype}, got {self.declared_variables[returned]} instead.')
                         exit(-1)
 
-        if r <= 0:
-            print(f'Semantic error: identifier {returned} given in return not found.')
-            exit(-1)
+            if r <= 0 and r is not None and returned is not None and returned not in ['CTE_INT', 'CTE_FLOAT', 'CTE_BOOL', 'CTE_STR', 'CTE_CHAR']:
+                print(f'Semantic error: identifier {returned} given in return not found.')
+                exit(-1)
 
-        if f != 0:
-            print(f'Semantic error: variable {v} out of scope or not declared in function.')
-            exit(-1)
+            if f <= 0 and f is not None:
+                print(f'Semantic error: variable {v} out of scope or not declared in function.')
+                exit(-1)
 
         self.found_function = False
 
@@ -181,9 +190,9 @@ class SemanticAnalyzer:
                     else:
                         return child.value.category.name
 
-
     def verify_declarations(self, children):
-        if self.verify_node_type(children.node_type, ['RW_INT', 'RW_EMPTY', 'RW_FLOAT', 'RW_BOOL', 'RW_STR', 'RW_CHAR']):
+        if self.verify_node_type(children.node_type,
+                                 ['RW_INT', 'RW_EMPTY', 'RW_FLOAT', 'RW_BOOL', 'RW_STR', 'RW_CHAR']):
             if children.children:
                 if self.verify_node_type(children.children.node_type, ['ID']):
                     if children.children.children:

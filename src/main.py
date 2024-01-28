@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 from parser import *
 import sys
 from semantic import *
@@ -16,6 +14,7 @@ try:
     if sint.token.category != TokenEnums.EOF:
         raise Exception(f"ERRO SINTÁTICO na linha {sint.lexer.row - 1}: {sint.lexer.txtline}")
 
+    print('Arquivo compilado com sucesso!')
 
 except Exception as e:
     raise
